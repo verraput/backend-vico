@@ -1,6 +1,6 @@
 const SectionDao = require("../dao/SectionDao");
 const VideoDao = require("../dao/VideoDao");
-const logger = require("../config/logger");
+// const logger = require("../config/logger");
 const httpStatus = require("http-status");
 const { returnSuccess, returnError } = require("../helper/responseHandler");
 

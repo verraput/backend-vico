@@ -6,7 +6,7 @@ const SectionService = require("../service/SectionService");
 const CartService = require("../service/CartService");
 const DiskusiService = require("../service/DiskusiService");
 const UserService = require("../service/UserService");
-const logger = require("../config/logger");
+// const logger = require("../config/logger");
 const { tokenTypes } = require("../config/tokens");
 
 class PaymentController {

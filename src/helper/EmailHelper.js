@@ -3,7 +3,7 @@
 const formData = require("form-data");
 const Mailgun = require("mailgun.js");
 const config = require("../config/config");
-const logger = require("../config/logger");
+// const logger = require("../config/logger");
 
 class EmailHelper {
   async sendEmail(from, to, subject, body, auth = null, attachment = false) {

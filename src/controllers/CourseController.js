@@ -5,7 +5,7 @@ const VideoService = require("../service/VideoService");
 const SectionService = require("../service/SectionService");
 const DiskusiService = require("../service/DiskusiService");
 const UserService = require("../service/UserService");
-const logger = require("../config/logger");
+// const logger = require("../config/logger");
 const { tokenTypes } = require("../config/tokens");
 
 class CourseController {

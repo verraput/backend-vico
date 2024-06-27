@@ -1,7 +1,7 @@
 const UserDao = require("../dao/UserDao");
 const CartDao = require("../dao/CartDao");
 const responseHandler = require("../helper/responseHandler");
-const logger = require("../config/logger");
+// const logger = require("../config/logger");
 const httpStatus = require("http-status");
 
 class CartService {

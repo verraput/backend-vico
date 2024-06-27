@@ -4,7 +4,7 @@ const UserDao = require("../dao/UserDao");
 const TokenDao = require("../dao/TokenDao");
 const { tokenTypes } = require("../config/tokens");
 const responseHandler = require("../helper/responseHandler");
-const logger = require("../config/logger");
+// const logger = require("../config/logger");
 const RedisService = require("./RedisService");
 
 class AuthService {

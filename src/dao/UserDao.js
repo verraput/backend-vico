@@ -1,6 +1,6 @@
 const SuperDao = require("./SuperDao");
 const models = require("../models");
-const logger = require("../config/logger");
+// const logger = require("../config/logger");
 
 const User = models.user;
 

@@ -29,7 +29,7 @@ transport.on('rotate', (oldFilename, newFilename) => {
     // call function like upload to s3 or on cloud
 });
 
-const logger = winston.createLogger({
+// const logger = winston.createLogger({
     format: winston.format.combine(enumerateErrorFormat(), winston.format.json()),
     transports: [
         transport,

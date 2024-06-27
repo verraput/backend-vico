@@ -1,7 +1,7 @@
 const UserDao = require("../dao/UserDao");
 const UserCourseDao = require("../dao/UserCourseDao");
 const CourseDao = require("../dao/CourseDao");
-const logger = require("../config/logger");
+// const logger = require("../config/logger");
 const httpStatus = require("http-status");
 const { returnError, returnSuccess } = require("../helper/responseHandler");
 
