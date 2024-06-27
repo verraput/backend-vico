@@ -17,7 +17,7 @@ class CartService {
       });
       return responseHandler.returnSuccess(httpStatus.OK, "Cart found", cart);
     } catch (error) {
-      logger.error(`getCartByUserId error: ${error}`);
+      // logger.error(`getCartByUserId error: ${error}`);
       return responseHandler.returnError(
         httpStatus.INTERNAL_SERVER_ERROR,
         "Internal Server Error"
@@ -54,7 +54,7 @@ class CartService {
         cart
       );
     } catch (error) {
-      logger.error(`createCart error: ${error}`);
+      // logger.error(`createCart error: ${error}`);
       return responseHandler.returnError(
         httpStatus.INTERNAL_SERVER_ERROR,
         "Internal Server Error"
@@ -77,7 +77,7 @@ class CartService {
       await this.cartDao.deleteByWhere({ user_id: user_id, course_id: id });
       return responseHandler.returnSuccess(httpStatus.OK, "Cart deleted", null);
     } catch (error) {
-      logger.error(`deleteCart error: ${error}`);
+      // logger.error(`deleteCart error: ${error}`);
       return responseHandler.returnError(
         httpStatus.INTERNAL_SERVER_ERROR,
         "Internal Server Error"

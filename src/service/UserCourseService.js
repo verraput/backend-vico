@@ -17,7 +17,7 @@ class UserCourseService {
       const count = await this.userCourseDao.getCountByWhere(course_id);
       return returnSuccess(httpStatus.OK, "Count learner success", count);
     } catch (error) {
-      logger.error(`countLearner error: ${error}`);
+      // logger.error(`countLearner error: ${error}`);
       return returnError(
         httpStatus.INTERNAL_SERVER_ERROR,
         "Internal Server Error"
@@ -70,7 +70,7 @@ class UserCourseService {
         userCourse
       );
     } catch (error) {
-      logger.error(`enrollCourse error: ${error}`);
+      // logger.error(`enrollCourse error: ${error}`);
       return returnError(
         httpStatus.INTERNAL_SERVER_ERROR,
         "Internal Server Error"

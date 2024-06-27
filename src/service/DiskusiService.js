@@ -21,7 +21,7 @@ class DiskusiService {
         diskusi
       );
     } catch (error) {
-      logger.error(`getDiskusiByCourseId error: ${error}`);
+      // logger.error(`getDiskusiByCourseId error: ${error}`);
       return responseHandler.returnError(
         httpStatus.INTERNAL_SERVER_ERROR,
         "Internal Server Error"
@@ -49,7 +49,7 @@ class DiskusiService {
         diskusi
       );
     } catch (error) {
-      logger.error(`createDiskusi error: ${error}`);
+      // logger.error(`createDiskusi error: ${error}`);
       return responseHandler.returnError(
         httpStatus.INTERNAL_SERVER_ERROR,
         "Internal Server Error"
@@ -77,7 +77,7 @@ class DiskusiService {
         null
       );
     } catch (error) {
-      logger.error(`deleteDiskusi error: ${error}`);
+      // logger.error(`deleteDiskusi error: ${error}`);
       return responseHandler.returnError(
         httpStatus.INTERNAL_SERVER_ERROR,
         "Internal Server Error"

@@ -12,19 +12,14 @@ class VideoService {
 
   createVideo = async (section_id, title, url, desc) => {
     try {
-      const newVideo = await this.videoDao.create(
-        section_id,
-        title,
-        desc,
-        url
-      );
+      const newVideo = await this.videoDao.create(section_id, title, desc, url);
       return returnSuccess(
         httpStatus.CREATED,
         "Video successfully created",
         newVideo
       );
     } catch (error) {
-      logger.error(`Error creating video: ${error}`);
+      // logger.error(`Error creating video: ${error}`);
       return returnError(httpStatus.INTERNAL_SERVER_ERROR, error.message);
     }
   };

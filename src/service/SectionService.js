@@ -15,7 +15,7 @@ class SectionService {
       const section = await this.SectionDao.create(course_id, title, desc);
       return returnSuccess(httpStatus.CREATED, "Section created", section);
     } catch (e) {
-      logger.error(`createSection error: ${error}`);
+      // logger.error(`createSection error: ${error}`);
       return returnError(
         httpStatus.INTERNAL_SERVER_ERROR,
         e.message || "Internal Server Error"

@@ -29,7 +29,7 @@ class CourseService {
       );
       return returnSuccess(httpStatus.CREATED, "Course created", course);
     } catch (error) {
-      logger.error(`createCourse error: ${error}`);
+      // logger.error(`createCourse error: ${error}`);
       return returnError(
         httpStatus.INTERNAL_SERVER_ERROR,
         "Internal Server Error"
@@ -45,7 +45,7 @@ class CourseService {
       }
       return returnSuccess(httpStatus.OK, "Course found", course);
     } catch (error) {
-      logger.error(`getCourse error: ${error}`);
+      // logger.error(`getCourse error: ${error}`);
       return returnError(
         httpStatus.INTERNAL_SERVER_ERROR,
         "Internal Server Error"
@@ -58,7 +58,7 @@ class CourseService {
       const courses = await this.courseDao.findAllCourse();
       return returnSuccess(httpStatus.OK, "Courses found", courses);
     } catch (error) {
-      logger.error(`getAllCourse error: ${error}`);
+      // logger.error(`getAllCourse error: ${error}`);
       return returnError(
         httpStatus.INTERNAL_SERVER_ERROR,
         "Internal Server Error"
@@ -75,7 +75,7 @@ class CourseService {
       await this.courseDao.deleteByWhere({ id: id });
       return returnSuccess(httpStatus.OK, "Course deleted", null);
     } catch (error) {
-      logger.error(`deleteCourse error: ${error}`);
+      // logger.error(`deleteCourse error: ${error}`);
       return returnError(
         httpStatus.INTERNAL_SERVER_ERROR,
         "Internal Server Error"

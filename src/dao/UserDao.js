@@ -40,7 +40,7 @@ class UserDao extends SuperDao {
           return result;
         })
         .catch((e) => {
-          logger.error(e);
+          // logger.error(e);
           console.log(e);
         });
     }
@@ -53,7 +53,7 @@ class UserDao extends SuperDao {
         return result;
       })
       .catch((e) => {
-        logger.error(e);
+        // logger.error(e);
         console.log(e);
       });
   }

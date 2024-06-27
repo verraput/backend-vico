@@ -49,7 +49,7 @@ class CourseDao extends SuperDao {
               model: models.video,
               attributes: ["title", "duration"],
             },
-          ]
+          ],
         },
       ],
     })
@@ -57,7 +57,7 @@ class CourseDao extends SuperDao {
         return result;
       })
       .catch((e) => {
-        logger.error(e);
+        // logger.error(e);
         console.log(e);
       });
   }

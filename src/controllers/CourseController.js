@@ -53,7 +53,7 @@ class CourseController {
         .status(course.statusCode)
         .send({ ...course.response, sections: sections, videos: videos });
     } catch (e) {
-      logger.error(e);
+      // logger.error(e);
       res.status(httpStatus.BAD_GATEWAY).send(e);
     }
   };
@@ -63,7 +63,7 @@ class CourseController {
       const course = await this.courseService.getCourse(req.params.id);
       res.status(course.statusCode).send(course.response);
     } catch (e) {
-      logger.error(e);
+      // logger.error(e);
       res.status(httpStatus.BAD_GATEWAY).send(e);
     }
   };
@@ -74,7 +74,7 @@ class CourseController {
       //   const countlearner =  await this.userCourseService.countLearner();
       res.status(courses.statusCode).send(courses.response);
     } catch (e) {
-      logger.error(e);
+      // logger.error(e);
       res.status(httpStatus.BAD_GATEWAY).send(e);
     }
   };
@@ -84,7 +84,7 @@ class CourseController {
       const course = await this.courseService.deleteCourse(req.params.id);
       res.status(course.statusCode).send(course.response);
     } catch (e) {
-      logger.error(e);
+      // logger.error(e);
       res.status(httpStatus.BAD_GATEWAY).send(e);
     }
   };
@@ -96,7 +96,7 @@ class CourseController {
       );
       res.status(course.statusCode).send(course.response);
     } catch (e) {
-      logger.error(e);
+      // logger.error(e);
       res.status(httpStatus.BAD_GATEWAY).send(e);
     }
   };
@@ -110,17 +110,20 @@ class CourseController {
       );
       res.status(course.statusCode).send(course.response);
     } catch (e) {
-      logger.error(e);
+      // logger.error(e);
       res.status(httpStatus.BAD_GATEWAY).send(e);
     }
   };
 
   deleteCourseDiscussion = async (req, res) => {
     try {
-      const course = await this.diskusiService.deleteDiskusi(req.params.id, req.user.uuid);
+      const course = await this.diskusiService.deleteDiskusi(
+        req.params.id,
+        req.user.uuid
+      );
       res.status(course.statusCode).send(course.response);
     } catch (e) {
-      logger.error(e);
+      // logger.error(e);
       res.status(httpStatus.BAD_GATEWAY).send(e);
     }
   };

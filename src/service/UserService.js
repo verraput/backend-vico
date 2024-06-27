@@ -49,7 +49,7 @@ class UserService {
         userData
       );
     } catch (e) {
-      logger.error(e);
+      // logger.error(e);
       return responseHandler.returnError(
         httpStatus.BAD_REQUEST,
         "Something went wrong!"

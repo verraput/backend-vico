@@ -38,7 +38,7 @@ class PaymentController {
       const cart = await this.cartService.createCart(uuid, course_id);
       res.status(cart.statusCode).send(cart.response);
     } catch (e) {
-      logger.error(e);
+      // logger.error(e);
       res.status(httpStatus.BAD_GATEWAY).send(e);
     }
   };
@@ -50,7 +50,7 @@ class PaymentController {
       const cart = await this.cartService.deleteCart(uuid, course_id);
       res.status(cart.statusCode).send(cart.response);
     } catch (e) {
-      logger.error(e);
+      // logger.error(e);
       res.status(httpStatus.BAD_GATEWAY).send(e);
     }
   };
@@ -61,7 +61,7 @@ class PaymentController {
       const cart = await this.cartService.getCartByUserId(uuid);
       res.status(cart.statusCode).send(cart.response);
     } catch (e) {
-      logger.error(e);
+      // logger.error(e);
       res.status(httpStatus.BAD_GATEWAY).send(e);
     }
   };
@@ -81,7 +81,7 @@ class PaymentController {
       );
       res.status(userCourse.statusCode).send(userCourse.response);
     } catch (e) {
-      logger.error(e);
+      // logger.error(e);
       res.status(httpStatus.BAD_GATEWAY).send(e);
     }
   };
