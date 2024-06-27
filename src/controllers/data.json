@@ -1,0 +1,82 @@
+{
+  "author": "John Doe",
+  "title": "",
+  "description": "",
+  "price": 0,
+  "thumbnail": "https://via.placeholder.com/150",
+  "level": "intermediatte",
+  "sections": [
+    {
+      "title": "Introduction",
+      "desc": "This is the introduction section",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+          "title": "Video 1",
+          "desc": "This is the first video",
+          "duration": 100
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+          "title": "Video 1",
+          "desc": "This is the first video",
+          "duration": 100
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+          "title": "Video 1",
+          "desc": "This is the first video",
+          "duration": 100
+        }
+      ]
+    },
+    {
+      "title": "Introduction",
+      "desc": "This is the introduction section",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+          "title": "Video 1",
+          "desc": "This is the first video",
+          "duration": 100
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+          "title": "Video 1",
+          "desc": "This is the first video",
+          "duration": 100
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+          "title": "Video 1",
+          "desc": "This is the first video",
+          "duration": 100
+        }
+      ]
+    },
+    {
+      "title": "Introduction",
+      "desc": "This is the introduction section",
+      "videos": [
+        {
+          "url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+          "title": "Video 1",
+          "desc": "This is the first video",
+          "duration": 100
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+          "title": "Video 1",
+          "desc": "This is the first video",
+          "duration": 100
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=9bZkp7q19f0",
+          "title": "Video 1",
+          "desc": "This is the first video",
+          "duration": 100
+        }
+      ]
+    }
+  ]
+}
