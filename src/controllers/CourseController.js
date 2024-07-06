@@ -17,9 +17,9 @@ const admin = require("firebase-admin");
 
 admin.initializeApp({
   credential: admin.credential.cert({
-    projectId: config.firebase_project_id.toString(),
-    clientEmail: config.firebase_client_email.toString(),
-    privateKey: config.firebase_private_key.toString(),
+    projectId: config.firebase_project_id,
+    clientEmail: config.firebase_client_email,
+    privateKey: config.firebase_private_key,
   }),
   storageBucket: config.bucketUrl,
 });
