@@ -12,12 +12,15 @@ const saltedMd5 = require("salted-md5");
 const path = require("path");
 var fs = require("fs");
 
-const serviceAccount = require("../../serviceAccount.json");
 const config = require("../config/config");
 const admin = require("firebase-admin");
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert({
+    projectId: config.firebase_project_id.toString(),
+    clientEmail: config.firebase_client_email.toString(),
+    privateKey: config.firebase_private_key.toString(),
+  }),
   storageBucket: config.bucketUrl,
 });
 
