@@ -22,6 +22,19 @@ class SectionService {
       );
     }
   };
+
+  updateOrCreate = async (id, data) => {
+    try {
+      const section = await this.SectionDao.updateOrCreate(data, id);
+      return returnSuccess(httpStatus.CREATED, "Section created", section);
+    } catch (e) {
+      // logger.error(`createSection error: ${error}`);
+      return returnError(
+        httpStatus.INTERNAL_SERVER_ERROR,
+        e.message || "Internal Server Error"
+      );
+    }
+  };
 }
 
 module.exports = SectionService;

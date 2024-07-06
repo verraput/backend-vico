@@ -69,7 +69,6 @@ class PaymentController {
   addUserCourse = async (req, res) => {
     try {
       const { course_id, user_id } = req.body;
-      const mentor_id = req.user.uuid;
       const course = await this.courseService.getCourse(course_id);
       if (!course.response.status) {
         return res.status(course.statusCode).send(course.response);
@@ -77,9 +76,48 @@ class PaymentController {
       const userCourse = await this.userCourseService.enrollCourse(
         user_id,
         course_id,
-        mentor_id
+        req.user
       );
       res.status(userCourse.statusCode).send(userCourse.response);
+    } catch (e) {
+      // logger.error(e);
+      res.status(httpStatus.BAD_GATEWAY).send(e);
+    }
+  };
+
+  deleteUserCourse = async (req, res) => {
+    try {
+      const { course_id, user_id } = req.body;
+      const userCourse = await this.userCourseService.deleteUserCourse(
+        user_id,
+        course_id,
+        req.user
+      );
+      res.status(userCourse.statusCode).send(userCourse.response);
+    } catch (e) {
+      // logger.error(e);
+      res.status(httpStatus.BAD_GATEWAY).send(e);
+    }
+  };
+
+  getAllLearnerCourse = async (req, res) => {
+    try {
+      const course = await this.userCourseService.getAllLearnerinCourse(
+        req.body.course_id,
+        req.user
+      );
+      res.status(course.statusCode).send(course.response);
+    } catch (e) {
+      // logger.error(e);
+      res.status(httpStatus.BAD_GATEWAY).send(e);
+    }
+  };
+
+  searchLearner = async (req, res) => {
+    try {
+      const q = req.query.q;
+      const user = await this.userService.searchUser(q, req.user);
+      res.status(user.statusCode).send(user.response);
     } catch (e) {
       // logger.error(e);
       res.status(httpStatus.BAD_GATEWAY).send(e);

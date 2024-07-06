@@ -9,6 +9,7 @@ const authController = new AuthController();
 const userValidator = new UserValidator();
 
 router.post('/register', userValidator.userCreateValidator, authController.register);
+router.get("/", auth(), authController.getProfile);
 router.post('/email-exists', userValidator.checkEmailValidator, authController.checkEmail);
 router.post('/login', userValidator.userLoginValidator, authController.login);
 router.post('/refresh-token', authController.refreshTokens);

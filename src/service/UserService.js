@@ -78,6 +78,11 @@ class UserService {
     return this.userDao.findOneByWhere({ uuid });
   };
 
+  getUserData = async (uuid) => {
+    const user = await this.userDao.findOneByWhere({ uuid });
+    return responseHandler.returnSuccess(httpStatus.OK, "User Found", user);
+  };
+
   changePassword = async (data, uuid) => {
     let message = "Login Successful";
     let statusCode = httpStatus.OK;
@@ -125,6 +130,24 @@ class UserService {
       httpStatus.BAD_REQUEST,
       "Password Update Failed!"
     );
+  };
+
+  searchUser = async (search, mentor) => {
+    if (mentor.user_type !== "mentor") {
+      return responseHandler.returnError(
+        httpStatus.BAD_REQUEST,
+        "User is not mentor"
+      );
+    }
+    const user = await this.userDao.searchUserByKeyword(search);
+    console.log(user);
+    if (!user) {
+      return responseHandler.returnError(
+        httpStatus.NOT_FOUND,
+        "User not found"
+      );
+    }
+    return responseHandler.returnSuccess(httpStatus.OK, "User Found", user);
   };
 }
 

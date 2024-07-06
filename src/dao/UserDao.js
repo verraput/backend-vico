@@ -1,5 +1,6 @@
 const SuperDao = require("./SuperDao");
 const models = require("../models");
+const { Op } = require("sequelize");
 // const logger = require("../config/logger");
 
 const User = models.user;
@@ -48,6 +49,27 @@ class UserDao extends SuperDao {
       where,
       attributes,
       order: [order],
+    })
+      .then((result) => {
+        return result;
+      })
+      .catch((e) => {
+        // logger.error(e);
+        console.log(e);
+      });
+  }
+
+  async searchUserByKeyword(query) {
+    return this.Model.findAll({
+      where: {
+        [Op.or]: [
+          { name: { [Op.substring]: `%${query}%` } },
+          { username: { [Op.substring]: `%${query}%` } },
+          { email: { [Op.substring]: `%${query}%` } },
+          { uuid: query },
+        ],
+      },
+      attributes: ["name", "username", "profile_picture", "uuid"],
     })
       .then((result) => {
         return result;

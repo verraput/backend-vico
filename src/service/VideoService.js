@@ -23,6 +23,19 @@ class VideoService {
       return returnError(httpStatus.INTERNAL_SERVER_ERROR, error.message);
     }
   };
+
+  updateOrCreate = async (data, id) => {
+    try {
+      const video = await this.videoDao.updateOrCreate(data, id);
+      return returnSuccess(httpStatus.CREATED, "Video created", video);
+    } catch (e) {
+      // logger.error(`createSection error: ${error}`);
+      return returnError(
+        httpStatus.INTERNAL_SERVER_ERROR,
+        e.message || "Internal Server Error"
+      );
+    }
+  };
 }
 
 module.exports = VideoService;

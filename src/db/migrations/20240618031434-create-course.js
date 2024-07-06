@@ -28,7 +28,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       thumbnail: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(2000),
       },
       level: {
         type: Sequelize.ENUM("beginner", "novice", "intermediatte", "expert")

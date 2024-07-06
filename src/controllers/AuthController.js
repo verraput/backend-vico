@@ -12,17 +12,27 @@ class AuthController {
     this.authService = new AuthService();
   }
 
+  getProfile = async (req, res) => {
+    try {
+      const user = await this.userService.getUserData(req.user.uuid);
+      console.log("uuidnya", req.user.uuid);
+      res.status(user.statusCode).send(user.response);
+    } catch (e) {
+      // logger.error(e);
+      res.status(httpStatus.BAD_GATEWAY).send(e);
+    }
+  };
+
   register = async (req, res) => {
     try {
       const user = await this.userService.createUser(req.body);
       let tokens = {};
       const { status } = user.response;
-      if (user.response.status) {
+      if (status) {
         tokens = await this.tokenService.generateAuthTokens(user.response.data);
       }
 
-      const { message, data } = user.response;
-      res.status(user.statusCode).send({ status, message, data, tokens });
+      res.status(user.statusCode).send({ ...user.response, tokens });
     } catch (e) {
       // logger.error(e);
       res.status(httpStatus.BAD_GATEWAY).send(e);

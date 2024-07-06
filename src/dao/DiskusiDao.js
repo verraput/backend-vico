@@ -15,7 +15,7 @@ class DiskusiDao extends SuperDao {
         {
           model: models.user,
           as: "user",
-          attributes: ["name", "profile_picture"],
+          attributes: ["name", "profile_picture", "uuid"],
         },
       ],
       order: [order],

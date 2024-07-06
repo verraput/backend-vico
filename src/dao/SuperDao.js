@@ -27,11 +27,10 @@ class SuperDao {
       });
   }
 
-  async findOneByWhere(where, attributes = null, order = ["id", "desc"]) {
+  async findOneByWhere(where, attributes = null) {
     if (attributes == null) {
       return this.Model.findOne({
         where,
-        order: [order],
       })
         .then((result) => {
           return result;
@@ -44,7 +43,6 @@ class SuperDao {
     return this.Model.findOne({
       where,
       attributes,
-      order: [order],
     })
       .then((result) => {
         return result;
@@ -67,7 +65,7 @@ class SuperDao {
   }
 
   async updateById(data, id) {
-    return this.Model.update(data, { where: { id } })
+    return this.Model.update(data, { where: { id: id } })
       .then((result) => {
         return result;
       })

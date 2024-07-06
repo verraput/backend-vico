@@ -8,6 +8,34 @@ class CourseDao extends SuperDao {
     super(Course);
   }
 
+  findAllCourseByAuthor(author) {
+    return this.Model.findAll({
+      where: { author },
+      include: [
+        {
+          model: models.user,
+          attributes: ["name"], // Pilih atribut yang diperlukan dari tabel User
+        },
+        {
+          model: models.section,
+          attributes: ["id"],
+          include: [
+            {
+              model: models.video,
+              attributes: ["duration"],
+            },
+          ],
+        },
+      ],
+    })
+      .then((result) => {
+        return result;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
   async findAllCourse() {
     return this.Model.findAll({
       include: [
@@ -29,6 +57,33 @@ class CourseDao extends SuperDao {
       });
   }
 
+  async findOneByMentor(where) {
+    return this.Model.findOne({
+      where,
+      include: [
+        {
+          model: models.user,
+          attributes: ["name"], // Pilih atribut yang diperlukan dari tabel User
+        },
+        {
+          model: models.section,
+          include: [
+            {
+              model: models.video,
+            },
+          ],
+        },
+      ],
+    })
+      .then((result) => {
+        return result;
+      })
+      .catch((e) => {
+        // logger.error(e);
+        console.log(e);
+      });
+  }
+
   async findCourseById(id) {
     return this.Model.findOne({
       where: { id },
@@ -43,7 +98,7 @@ class CourseDao extends SuperDao {
         },
         {
           model: models.section,
-          attributes: ["title"],
+          attributes: ["title", "desc"],
           include: [
             {
               model: models.video,

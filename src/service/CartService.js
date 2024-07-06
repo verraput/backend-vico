@@ -40,8 +40,8 @@ class CartService {
       });
       if (cartExist) {
         return responseHandler.returnError(
-          httpStatus.BAD_REQUEST,
-          "Product already in cart"
+          httpStatus.CONFLICT,
+          "Product already in cart!"
         );
       }
       const cart = await this.cartDao.create({
@@ -50,7 +50,7 @@ class CartService {
       });
       return responseHandler.returnSuccess(
         httpStatus.CREATED,
-        "Cart created",
+        "Course added to Cart!",
         cart
       );
     } catch (error) {
@@ -75,7 +75,7 @@ class CartService {
         );
       }
       await this.cartDao.deleteByWhere({ user_id: user_id, course_id: id });
-      return responseHandler.returnSuccess(httpStatus.OK, "Cart deleted", null);
+      return responseHandler.returnSuccess(httpStatus.OK, "Course deleted from cart!", null);
     } catch (error) {
       // logger.error(`deleteCart error: ${error}`);
       return responseHandler.returnError(
